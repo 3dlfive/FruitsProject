@@ -19,6 +19,7 @@ client.connect(function(err) {
 
   insertDocuments(db, function() {
     client.close();
+  });
 });
 
 //Создаёт новую коллекцию
