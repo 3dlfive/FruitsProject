@@ -43,4 +43,4 @@ const insertDocuments = function(db, callback) {
     console.log("Inserted 3 documents into the collection");
     callback(result);
   });
-}
+};
