@@ -1,13 +1,13 @@
 const mongoose = require('mongoose');
 
 mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true });
-
+//Создание схемы базы данных
 const fruitSchema = new mongoose.Schema ({
   name: String,
   rating: Number,
   review: String
 });
-
+//Связь схемы с бд
 const Fruit = mongoose.model("Fruit", fruitSchema);
 //mongoose создание данных в бд
 const fruit = new Fruit ({
