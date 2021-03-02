@@ -1,7 +1,8 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true },
-{ useUnifiedTopology: true } );
+mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true,
+useUnifiedTopology: true  },
+);
 //Создание схемы базы данных
 const fruitSchema = new mongoose.Schema ({
   name: String,
