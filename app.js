@@ -47,10 +47,21 @@ const kiwi = new Fruit ({
   rating: 10,
   review: "Swetty"
 });
-Fruit.insertMany([kiwi,orange,banana,peach],function(err){
+// Добавление множество записей в бд
+
+// Fruit.insertMany([kiwi,orange,banana,peach],function(err){
+//   if (err) {
+//     console.log(err);
+//   } else {
+//     console.log("Succesfully save all the fruits!");
+//   }
+// });
+
+// Чтение с дб
+Fruit.find(function(err,fruits){
   if (err) {
     console.log(err);
   } else {
-    console.log("Succesfully save all the fruits!");
+    console.log(fruits);
   }
 });
