@@ -30,18 +30,27 @@ const people = new People ({
   age: 37
 });
 //people.save();
-
-
-
-//Поиск в коллекции
-const findDocuments = function(db, callback) {
-  // Get the documents collection
-  const collection = db.collection('fruits');
-  // Find some documents
-  collection.find({}).toArray(function(err, fruits) {
-    assert.equal(err, null);
-    console.log("Found the following records");
-    console.log(fruits)
-    callback(fruits);
-  });
-}
+const kiwi = new Fruit ({
+  name: "kiwi",
+  rating: 2,
+  review: "Good"
+});const orange = new Fruit ({
+  name: "orange",
+  rating: 7,
+  review: "Best fruit"
+});const banana = new Fruit ({
+  name: "banana",
+  rating: 4,
+  review: "Yellow fruit"
+});const peach = new Fruit ({
+  name: "peach",
+  rating: 10,
+  review: "Swetty"
+});
+Fruit.insertMany([kiwi,orange,banana,peach],function(err){
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Succesfully save all the fruits!");
+  }
+});
