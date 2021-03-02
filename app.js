@@ -6,19 +6,26 @@ mongoose.connect("mongodb://localhost:27017/fruitsDB", {
 }, );
 //Создание схемы базы данных
 const fruitSchema = new mongoose.Schema({
-  name: String,
-  rating: Number,
+  name: {
+    type: String,
+    required: true,
+  },
+  rating: {
+    type: Number,
+    min: 1,
+    max: 10
+  },
   review: String
 });
 //Создание модели, происходит связь с схемы и бд
 const Fruit = mongoose.model("Fruit", fruitSchema);
 //mongoose создание данных в бд
 const fruit = new Fruit({
-  name: "Apple",
+  name: "Cherry",
   rating: 7,
   review: "Pretty solid as a fruit"
 });
-//fruit.save(); Сохраняет в бд каждый раз как вызывается
+//fruit.save(); //Сохраняет в бд каждый раз как вызывается
 //Задание создание бд людей
 const peopleSchema = new mongoose.Schema({
   name: String,
