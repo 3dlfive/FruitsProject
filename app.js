@@ -57,11 +57,14 @@ const kiwi = new Fruit ({
 //   }
 // });
 
-// Чтение с дб
+// Чтение с дб циклом
 Fruit.find(function(err,fruits){
   if (err) {
     console.log(err);
   } else {
-    console.log(fruits);
+    for (let i = 0; i<fruits.length;i++){
+      console.log(fruits[i].name);
+    }
+
   }
 });
