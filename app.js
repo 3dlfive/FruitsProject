@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
-mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost:27017/fruitsDB", { useNewUrlParser: true },
+{ useUnifiedTopology: true } );
 //Создание схемы базы данных
 const fruitSchema = new mongoose.Schema ({
   name: String,
@@ -27,7 +28,7 @@ const people = new People ({
   name: "Oleg",
   age: 37
 });
-people.save();
+//people.save();
 
 
 
