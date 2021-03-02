@@ -7,7 +7,7 @@ const fruitSchema = new mongoose.Schema ({
   rating: Number,
   review: String
 });
-//Связь схемы с бд
+//Создание модели, происходит связь с схемы и бд
 const Fruit = mongoose.model("Fruit", fruitSchema);
 //mongoose создание данных в бд
 const fruit = new Fruit ({
@@ -15,7 +15,19 @@ const fruit = new Fruit ({
   rating: 7,
   review: "Pretty solid as a fruit"
 });
-fruit.save();
+//fruit.save(); Сохраняет в бд каждый раз как вызывается
+//Задание создание бд людей
+const peopleSchema = new mongoose.Schema({
+  name: String,
+  age: Number
+});
+
+const People = mongoose.model("People", peopleSchema);//Создаем модель
+const people = new People ({
+  name: "Oleg",
+  age: 37
+});
+people.save();
 
 
 
