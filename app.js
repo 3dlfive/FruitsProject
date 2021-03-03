@@ -81,3 +81,12 @@ Fruit.find(function(err, fruits) {
     //   console.log(fruits[i].name);
   }
 });
+//Удаление записи  с бд
+
+Fruit.deleteOne({_id: "603e41b93b2f962b94580809"},function(err){
+  if(err){
+    console.log(err);
+  } else {
+    console.log("Peach removed Succesfully!");
+  }
+});
