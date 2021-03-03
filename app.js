@@ -29,7 +29,8 @@ const fruit = new Fruit({
 //Задание создание бд людей
 const peopleSchema = new mongoose.Schema({
   name: String,
-  age: Number
+  age: Number,
+  favoriteFruite: fruitSchema
 });
 
 const People = mongoose.model("People", peopleSchema); //Создаем модель
@@ -37,7 +38,7 @@ const people = new People({
   name: "Oleg",
   age: 37
 });
-//people.save();
+
 const kiwi = new Fruit({
   name: "kiwi",
   rating: 2,
@@ -58,9 +59,20 @@ const peach = new Fruit({
   rating: 10,
   review: "Swetty"
 });
-// Добавление множество записей в бд
+const pineapple = new Fruit({
+  name: "Pineapple",
+  rating: 3,
+  review: "Swetty fruite"
+});
+//pineapple.save();// Сохраняем
 
-// Fruit.insertMany([kiwi,orange,banana,peach],function(err){
+const person = new People({
+  name: "Any",
+  age: 12,
+  favoriteFruite: pineapple// создание зависимости
+});
+//person.save();
+// Добавление множество записей в бд// Fruit.insertMany([kiwi,orange,banana,peach],function(err){
 //   if (err) {
 //     console.log(err);
 //   } else {
@@ -81,12 +93,16 @@ Fruit.find(function(err, fruits) {
     //   console.log(fruits[i].name);
   }
 });
-//Удаление записи  с бд
+// Добавление любимого фрукта записи Олег в монгоДб
+People.updateOne({name:"Oleg"},{favoriteFruite:banana},function(err){
+  if(err){console.log(err);}else {console.log("Succesfully update Oleg favorite fruite.");}
+})
 
-Fruit.deleteOne({_id: "603e41b93b2f962b94580809"},function(err){
-  if(err){
-    console.log(err);
-  } else {
-    console.log("Peach removed Succesfully!");
-  }
-});
+//Удаление записи  с бд
+// Fruit.deleteOne({_id: "603e41b93b2f962b94580809"},function(err){
+//   if(err){
+//     console.log(err);
+//   } else {
+//     console.log("Peach removed Succesfully!");
+//   }
+// });
